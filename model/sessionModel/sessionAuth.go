@@ -70,7 +70,13 @@ func SessionAuthorize(c echo.Context, store *sessions.CookieStore) *model.ErrorR
 	}
 
 	if session.IsNew {
-		errResponse.Status = 404
+		errResponse.Status = 401
+		errResponse.Message = "Unauthorized Request!"
+		return errResponse
+	}
+
+	if session.Options.MaxAge < 0 {
+		errResponse.Status = 401
 		errResponse.Message = "Unauthorized Request!"
 		return errResponse
 	}

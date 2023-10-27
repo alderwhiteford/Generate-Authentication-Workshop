@@ -2,7 +2,7 @@ package sessioncontroller
 
 import (
 	"generate-auth-workshop/model"
-	sessionmodel "generate-auth-workshop/model/sessionModel"
+	"generate-auth-workshop/model/sessionModel"
 	"generate-auth-workshop/utils"
 	"net/http"
 	"os"
